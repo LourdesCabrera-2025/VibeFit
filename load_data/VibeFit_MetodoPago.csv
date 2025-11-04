@@ -1,0 +1,5 @@
+﻿id_Metodo_pago;metodo_pago
+1;Efectivo
+2;Tarjeta
+3;Transferencia
+4;Paypal

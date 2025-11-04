@@ -1,0 +1,16 @@
+﻿id_membresia;tipo_membresia;beneficios;precio;duracion_meses
+1;1;Acceso a clases generales;25.00;1
+2;1;Acceso libre a máquinas;30.00;1
+3;2;Clases + entrenador personalizado;50.00;1
+4;2;Acceso ilimitado + locker privado;55.00;1
+5;2;Entrenamientos funcionales + asesoría nutricional;60.00;1
+6;3;Plan anual con descuento del 10%;500.00;12
+7;3;Plan anual VIP;650.00;12
+8;3;Acceso completo y beneficios extra;700.00;12
+9;1;Acceso a clases regulares + spinning;35.00;1
+10;2;Entrenamiento personalizado intensivo;75.00;2
+11;1;Clases de yoga y pilates;40.00;1
+12;3;Membresía familiar (hasta 3 personas);900.00;12
+13;2;Membresía de 6 meses;280.00;6
+14;1;Solo uso gimnasio libre;20.00;1
+15;3;Anual corporativa;850.00;12
