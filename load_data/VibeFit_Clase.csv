@@ -1,0 +1,21 @@
+﻿id_clase;nombre_clase;tipo_clase;disponibilidad;horario_inicio;horario_fin;id_entrenador
+1;Yoga Sunrise;1;20;7:00;8:00;1
+2;CrossFit Power;2;15;8:00;9:00;2
+3;Spinning Intenso;3;12;9:00;10:00;3
+4;Pilates Core;4;18;10:00;11:00;4
+5;Zumba Fun;3;25;11:00;12:00;5
+6;Yoga Flow;1;20;16:00;17:00;6
+7;CrossFit Elite;2;15;17:00;18:00;7
+8;Spinning Night;3;12;18:00;19:00;8
+9;Pilates Relax;4;18;19:00;20:00;9
+10;Cardio Dance;4;25;20:00;21:00;10
+11;Yoga Balance;1;20;7:00;8:00;1
+12;CrossFit Max;2;15;8:00;9:00;2
+13;Spinning Pro;3;12;9:00;10:00;3
+14;Pilates Energy;4;18;10:00;11:00;4
+15;Zumba Xtreme;2;25;11:00;12:00;5
+16;Yoga Advanced;1;20;16:00;17:00;6
+17;CrossFit Burn;2;15;17:00;18:00;7
+18;Spinning Express;3;12;18:00;19:00;8
+19;Pilates Plus;4;18;19:00;20:00;9
+20;Zumba Energy;1;25;20:00;21:00;10
