@@ -4,6 +4,7 @@ Antes que nada, ejecutar la query "dashboard user.sql" ya que el dashboard usa s
 En caso que te pida el usuario y la contraseña usar:
 
 PowerBIUser
+
 YT8N^6UxWE$T%reHeBfUuXNo6
 
 Para conectar con tu servidor de DB ir a Inicio -> Transformar Datos -> Editar Parametros
