@@ -400,3 +400,49 @@ INSERT INTO Pago (fecha_pago, monto_pago, metodo_pago, id_socio) VALUES
 SELECT * FROM Clase
 SELECT * FROM Socio
 Select * FROM Reserva
+
+SET STATISTICS IO ON;
+SET STATISTICS TIME ON;
+
+-- Consulta Ingresos totales por mes
+SELECT YEAR(P.fecha_pago) AS Anio, MONTH(P.fecha_pago) AS Mes, SUM(P.monto_pago) AS Ingresos_totales FROM Pago P
+GROUP BY YEAR(P.fecha_pago), MONTH(P.fecha_pago);
+
+-- Consulta sobre entrenador
+SELECT E.id_entrenador AS ID, nombre_completo AS Entrenador, E.correo AS Email, ES.especialidad AS Especialidad,
+C.nombre_clase AS Clase FROM Entrenador E
+JOIN Especialidad ES ON ES.id_especialidad = E.especialidad
+JOIN Clase C ON C.id_entrenador = E.id_entrenador
+ORDER BY ES.especialidad;
+
+-- Consulta  de clases por reservas
+SELECT C.id_clase AS ID, C.nombre_clase AS Clase, COUNT(R.id_reserva) AS Reservas FROM Reserva R
+JOIN Clase C ON R.id_clase = C.id_clase WHERE R.fecha_reserva BETWEEN '2025-03-01' AND '2025-03-31'
+GROUP BY C.id_clase, C.nombre_clase;
+
+-- Consulta de asistencia
+SELECT C.id_clase AS ID, C.nombre_clase AS Clase, SUM(CAST(R.asistencia AS INT)) AS Asistencias, COUNT(R.id_reserva) AS Total_reservas FROM Reserva R
+JOIN Clase C ON R.id_clase = C.id_clase
+GROUP BY C.nombre_clase, C.id_clase;
+
+--Consulta Socios con sus respectivas reservas
+SELECT S.id_socio AS ID_Socio, S.nombre_completo AS Socio, R.id_reserva AS ID_Reserva, 
+R.fecha_reserva AS Fecha, R.id_clase AS ID_Clase,
+C.nombre_clase AS Clase, COUNT(R.id_reserva) OVER (PARTITION BY S.id_socio) AS Total_reservas
+FROM Socio S 
+JOIN Reserva R ON S.id_socio = R.id_socio
+LEFT JOIN Clase C ON R.id_clase = C.id_clase
+ORDER BY S.nombre_completo ASC;
+
+--Indices
+CREATE NONCLUSTERED INDEX idx_Pago ON Pago(fecha_pago) INCLUDE (monto_pago);
+
+CREATE NONCLUSTERED INDEX idx_Entrenador ON Clase(id_entrenador) INCLUDE (nombre_clase);
+
+CREATE NONCLUSTERED INDEX idx_Reserva ON Reserva(fecha_reserva);
+
+CREATE NONCLUSTERED INDEX idx_Asistencia ON Reserva(id_clase) INCLUDE (asistencia);
+
+CREATE NONCLUSTERED INDEX idx_Socio ON Socio(nombre_completo);
+
+
