@@ -7,6 +7,6 @@ ser que usaras otro nombre. Pero no creo.
 
 Al conectar pedirá usuario y contraseña, para mantener control usar los recien creados:
 
-PowerBIUser
+PowerBILogin
 
 YT8N^6UxWE$T%reHeBfUuXNo6
