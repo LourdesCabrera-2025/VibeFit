@@ -7,15 +7,67 @@
 USE VibeFit;
 GO
 
-BULK INSERT Socio FROM 'C:\bulk_data\VibeFit_Socio.csv'
+BULK INSERT Socio FROM 'C:\VibeFit\load_data\VibeFit_Socios.csv'
 WITH (
-	FIELDTERMINATOR = ';', --Separador de campos
-	ROWTERMINATOR = '\n',  --Separador de filas
-	FIRSTROW = 2,		   --Saltar encabezado de archivo
-	CODEPAGE = '65001'	   --UTF-8 (1252)
+	FIELDTERMINATOR = ';',  
+	ROWTERMINATOR = '\n',  
+	FIRSTROW = 2,		   
+	CODEPAGE = '65001',	 
+	KEEPIDENTITY
 );
 
-BULK INSERT Membresia FROM 'C:\bulk_data\VibeFit_Membresia.csv'
+BULK INSERT Membresia FROM 'C:\VibeFit\load_data\VibeFit_Membresia.csv'
+WITH (
+	FIELDTERMINATOR = ';', 
+	ROWTERMINATOR = '\n', 
+	FIRSTROW = 2, 
+	CODEPAGE = '65001',
+	KEEPIDENTITY
+);
+
+
+
+BULK INSERT Entrenador
+FROM 'C:\VibeFit\load_data\VibeFit_Entrenador.csv'
+WITH (
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2,
+    CODEPAGE = '65001',
+	KEEPIDENTITY
+);
+
+
+
+BULK INSERT Clase FROM 'C:\VibeFit\load_data\VibeFit_Clase.csv'
+WITH (
+	FIELDTERMINATOR = ',', 
+	ROWTERMINATOR = '\n', 
+	FIRSTROW = 2, 
+	CODEPAGE = '65001',
+	KEEPIDENTITY
+);
+
+BULK INSERT Reserva FROM 'C:\VibeFit\load_data\VibeFit_Reserva.csv'
+WITH (
+	FIELDTERMINATOR = ',', 
+	ROWTERMINATOR = '\n', 
+	FIRSTROW = 2, 
+	CODEPAGE = '65001',
+	KEEPIDENTITY
+
+);
+
+BULK INSERT Pago FROM 'C:\VibeFit\load_data\VibeFit_Pago.csv'
+WITH (
+	FIELDTERMINATOR = ',', 
+	ROWTERMINATOR = '\n', 
+	FIRSTROW = 2, 
+	CODEPAGE = '65001',
+	KEEPIDENTITY
+);
+
+BULK INSERT Tipo_Membresia FROM 'C:\VibeFit\load_data\VibeFit_TipoMembresia.csv'
 WITH (
 	FIELDTERMINATOR = ';', 
 	ROWTERMINATOR = '\n', 
@@ -23,7 +75,7 @@ WITH (
 	CODEPAGE = '65001'
 );
 
-BULK INSERT Entrenador FROM 'C:\bulk_data\VibeFit_Entrenador.csv'
+BULK INSERT Especialidad FROM 'C:\VibeFit\load_data\VibeFit_Especialidad.csv'
 WITH (
 	FIELDTERMINATOR = ';', 
 	ROWTERMINATOR = '\n', 
@@ -31,7 +83,7 @@ WITH (
 	CODEPAGE = '65001'
 );
 
-BULK INSERT Clase FROM 'C:\bulk_data\VibeFit_Clase.csv'
+BULK INSERT Tipo_Clase FROM 'C:\VibeFit\load_data\VibeFit_TipoClase.csv'
 WITH (
 	FIELDTERMINATOR = ';', 
 	ROWTERMINATOR = '\n', 
@@ -39,47 +91,7 @@ WITH (
 	CODEPAGE = '65001'
 );
 
-BULK INSERT Reserva FROM 'C:\bulk_data\VibeFit_Reserva.csv'
-WITH (
-	FIELDTERMINATOR = ';', 
-	ROWTERMINATOR = '\n', 
-	FIRSTROW = 2, 
-	CODEPAGE = '65001'
-);
-
-BULK INSERT Pago FROM 'C:\bulk_data\VibeFit_Pago.csv'
-WITH (
-	FIELDTERMINATOR = ';', 
-	ROWTERMINATOR = '\n', 
-	FIRSTROW = 2, 
-	CODEPAGE = '65001'
-);
-
-BULK INSERT Tipo_Membresia FROM 'C:\bulk_data\VibeFit_TipoMembresia.csv'
-WITH (
-	FIELDTERMINATOR = ';', 
-	ROWTERMINATOR = '\n', 
-	FIRSTROW = 2, 
-	CODEPAGE = '65001'
-);
-
-BULK INSERT Especialidad FROM 'C:\bulk_data\VibeFit_Especialidad.csv'
-WITH (
-	FIELDTERMINATOR = ';', 
-	ROWTERMINATOR = '\n', 
-	FIRSTROW = 2, 
-	CODEPAGE = '65001'
-);
-
-BULK INSERT Tipo_Clase FROM 'C:\bulk_data\VibeFit_TipoClase.csv'
-WITH (
-	FIELDTERMINATOR = ';', 
-	ROWTERMINATOR = '\n', 
-	FIRSTROW = 2, 
-	CODEPAGE = '65001'
-);
-
-BULK INSERT Metodo_Pago FROM 'C:\bulk_data\VibeFit_MetodoPago.csv'
+BULK INSERT Metodo_Pago FROM 'C:\VibeFit\load_data\VibeFit_MetodoPago.csv'
 WITH (
 	FIELDTERMINATOR = ';', 
 	ROWTERMINATOR = '\n', 
@@ -135,3 +147,4 @@ SELECT COUNT(*) AS Registros FROM Tipo_Membresia
 SELECT COUNT(*) AS Registros FROM Especialidad
 SELECT COUNT(*) AS Registros FROM Tipo_Clase
 SELECT COUNT(*) AS Registros FROM Metodo_Pago
+

@@ -1,11 +1,21 @@
-﻿id_entrenador;nombre_completo;correo;telefono;especialidad;salario
-1;Laura Gómez;laura.gomez@vibefit.com;7277-1411;1;950.00
-2;Carlos Mendoza;carlos.mendoza@vibefit.com;7515-2312;2;1100.00
-3;Andrés Rivera;andres.rivera@vibefit.com;7747-3313;3;980.00
-4;María Torres;maria.torres@vibefit.com;7297-4544;4;900.00
-5;José Castro;jose.castro@vibefit.com;7637-5425;3;1000.00
-6;Sofía López;sofia.lopez@vibefit.com;7232-6296;1;1050.00
-7;Raúl Jiménez;raul.jimenez@vibefit.com;7045-7722;2;1150.00
-8;Fernanda Ruiz;fernanda.ruiz@vibefit.com;8877-1436;3;980.00
-9;Daniel Pérez;daniel.perez@vibefit.com;7245-9319;4;970.00
-10;Gabriela Flores;gabriela.flores@vibefit.com;7257-3054;1;1100.00
+id_entrenador;nombre_completo;correo;telefono;especialidad;salario
+1;Laura Torres;laura.torres1@vibefit.com;7146-6418;4;1108.58
+2;Pedro Hernández;pedro.hernández1@vibefit.com;7293-7175;1;1082.69
+3;Raúl Mendoza;raúl.mendoza1@vibefit.com;7857-9945;2;1116.04
+4;Laura Gómez;laura.gómez1@vibefit.com;7471-2556;4;1044.81
+5;Lucía Gómez;lucía.gómez1@vibefit.com;7238-3527;1;1162.14
+6;Carlos Torres;carlos.torres1@vibefit.com;7615-3557;4;1138.41
+7;Andrés Jiménez;andrés.jiménez1@vibefit.com;7288-8177;2;1122.98
+8;Raúl Jiménez;raúl.jiménez1@vibefit.com;7324-7364;4;1096.56
+9;Andrés López;andrés.lópez1@vibefit.com;7774-4818;1;901.8
+10;Pedro Castro;pedro.castro1@vibefit.com;7166-7699;2;1024.75
+11;Andrés Mendoza;andrés.mendoza1@vibefit.com;7433-5578;4;1156.81
+12;María Torres;maría.torres1@vibefit.com;7248-8772;1;1020.11
+13;Andrés Hernández;andrés.hernández1@vibefit.com;7381-5247;3;1052.67
+14;Laura Vega;laura.vega1@vibefit.com;7300-3634;1;900.1
+15;Lucía Castro;lucía.castro1@vibefit.com;7190-1515;3;1160.83
+16;Pedro Castro;pedro.castro2@vibefit.com;7547-7238;3;1092.92
+17;Laura Hernández;laura.hernández1@vibefit.com;7910-3246;4;1052.33
+18;Raúl Castro;raúl.castro1@vibefit.com;7567-3041;4;922.11
+19;José Pérez;josé.pérez1@vibefit.com;7554-4759;4;959.1
+20;José Castro;josé.castro1@vibefit.com;7657-5241;3;1112.14
