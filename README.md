@@ -1,1 +1,1 @@
-# VibeFit
+# VibeFit - Grupo V
