@@ -133,7 +133,7 @@ FOREIGN KEY (id_socio) REFERENCES Socio(id_socio)
 -- SEGURIDAD SQL (ROLES ,USUARIOS Y POLITICAS 
 -- ============================================
 
-use master
+use VibeFit
 
 --- ===============================
 --   Creación de roles
@@ -147,6 +147,7 @@ CREATE ROLE db_Analista;
 -- Permisos para el rol de analista 
 -- ================================
 
+
 GRANT SELECT ON SCHEMA::dbo TO db_Analista;
 
 -- =================================
@@ -158,7 +159,7 @@ DENY INSERT, UPDATE ON Membresia TO db_Administracion;
 DENY INSERT, UPDATE ON Tipo_Clase TO db_Administracion;
 DENY INSERT , UPDATE ON Tipo_Membresia TO db_Administracion;
 DENY INSERT, UPDATE ON Metodo_Pago TO db_Administracion;
-DENY INSERT UPDATE ON Especialidad TO db_Administracion;
+DENY INSERT ,UPDATE ON Especialidad TO db_Administracion;
 
 -- ==================================
 -- Ver Entrenador sin salario
@@ -174,7 +175,7 @@ DENY SELECT ON Entrenador(salario) TO db_Administracion;
 GRANT SELECT ON Clase TO db_Entrenador;
 GRANT SELECT ON Reserva TO db_Entrenador;
 GRANT SELECT ON Socio(id_socio, nombre_completo) TO db_Entrenador;
-GRANT SELECT ON Entrenado TO db_Entrenadors;
+GRANT SELECT ON Entrenador TO db_Entrenador;
 DENY SELECT ON Entrenador(salario) TO db_Entrenador;
 DENY SELECT, INSERT, UPDATE , DELETE ON Pago TO db_Entrenador;
 
@@ -182,7 +183,7 @@ DENY SELECT, INSERT, UPDATE , DELETE ON Pago TO db_Entrenador;
 --===============================
 -- Creación de Logins y Usuarios
 --===============================
-
+USE master
 CREATE LOGIN [login_recepcion]
 WITH PASSWORD = 'Recepcion2025VibeFit',
 CHECK_POLICY = ON,
@@ -198,6 +199,8 @@ WITH PASSWORD = 'Analista2025VibeFit',
 CHECK_POLICY = ON,
 CHECK_EXPIRATION = OFF;
 
+USE VibeFit
+
 CREATE USER Recepcion FOR LOGIN login_recepcion;
 ALTER ROLE db_Administracion ADD MEMBER Recepcion;
 
@@ -210,12 +213,12 @@ ALTER ROLE db_analista ADD MEMBER Analista;
 --==========================================
 --    Audítorias 
 -- ========================================
-
+USE master
 CREATE SERVER AUDIT Audit_VibeFit_Pagos
-TO FILE ( FILEPATH = 'C:\VibeFit\Backups\AuditLogs');
+TO FILE ( FILEPATH = 'C:\VibeFit\Auditorias\');
 
 CREATE SERVER AUDIT Audit_VibeFit_Socios
-TO FILE ( FILEPATH = 'C:\VibeFit\Backups\AuditLogs');
+TO FILE ( FILEPATH = 'C:\VibeFit\Auditorias\');
 
 ALTER SERVER AUDIT Audit_VibeFit_Pagos
 WITH (STATE = ON);
@@ -226,11 +229,10 @@ WITH (STATE = ON)
 -- =============================================
 --- AUDITORIA DE PAGOS
 -- =============================================
-
+USE VibeFit
 CREATE DATABASE AUDIT SPECIFICATION Audit_Pagos_VibeFit
-FOR SERVER AUDIT Audit_VibeFit_Pagos
-ADD (INSERT, UPDATE , DELETE ON dbo.Pago BY public)
-WITH (STATE =  ON) 
+FOR SERVER AUDIT Audit_VibeFit_Pagos ADD (INSERT, UPDATE , DELETE ON Pago BY public)
+WITH (STATE =  ON) ;
 
 -- ==============================================
 --  AUDITORIA DE SOCIOS
@@ -258,7 +260,7 @@ DELETE FROM Pago WHERE id_pago = 21;
 
 SELECT *
 FROM sys.fn_get_audit_file (
- 'C:\VibeFit\Backups\AuditLogs\*',
+ 'C:\VibeFit\Auditorias\*',
  DEFAULT ,
  DEFAULT
 );
@@ -320,7 +322,7 @@ ON Clase(id_entrenador);
 -- Consultas Avanzadas con Funciones Ventana
 -- ===========================================
 
-
+use VibeFit
 -- Consultas Básicas convertidas a Funciones Ventana -- 
 
 SELECT 
@@ -392,9 +394,9 @@ WITH DIFFERENTIAL ,
 -- LOG TRANSACTION BACKUP --
 
 BACKUP LOG VibeFit 
-TO DISK = 'C:\Backups_VibeFit\Log\VibeFit_LOG.trn'
+TO DISK = 'C:\VibeFit\Backups_VibeFit\Log\VibeFit_LOG.trn'
 WITH INIT,
-	NAME = 'LOG TRANSACTION BACKUP '
+	NAME = 'LOG TRANSACTION BACKUP ';
 
 -- Plan de Recuperación --
 
